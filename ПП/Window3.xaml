@@ -1,0 +1,44 @@
+﻿<Window x:Class="ПП.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ПП"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="BtnAdeteData" Content="Добавить" Click="BtnAdeteData_Click"></Button>
+            <Button x:Name="BtnDeleteData" Content="Удалить" Click="BtnDeleteData_Click"></Button>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="DataGridДокументы"
+                      ColumnWidth="*"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Вид документа" Binding="{Binding Вид_документа1.Вид_документа1}"/>
+                <DataGridTextColumn Header="Статус документа" Binding="{Binding Статус_документа1.Статус_документа1}"/>
+                <DataGridTextColumn Header="Подтверждение утраты" Binding="{Binding Подтверждение_утраты1.Подтверждение_утраты1}"/>
+                <DataGridTextColumn Header="Подтверждение обмена" Binding="{Binding Подтверждение_обмена1.Подтверждение_обмена1}"/>
+                <DataGridTextColumn Header="Подтверждение уничтожения" Binding="{Binding Подтверждение_уничтожения1.Подтверждение_уничтожения1}"/>
+                <DataGridTextColumn Header="Серия документа" Binding="{Binding Серия_докумета}"/>
+                <DataGridTextColumn Header="Номер документа" Binding="{Binding Номер_документа}"/>
+                <DataGridTextColumn Header="Дата выдачи" Binding="{Binding Дата_выдачи, StringFormat={}{0:dd.MMMM.yyyy}}"/>
+                <DataGridTextColumn Header="Регистр.номер" Binding="{Binding Регист_номер}"/>
+                <DataGridTextColumn Header="Доп.программа" Binding="{Binding Доп_программа1.Доп_программа1}"/>
+                <DataGridTemplateColumn Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEditData" Click="BtnEditData_Click">Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

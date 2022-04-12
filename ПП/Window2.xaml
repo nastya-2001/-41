@@ -1,0 +1,51 @@
+﻿<Window x:Class="ПП.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ПП"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="{StaticResource ColorMain}">
+            <Button x:Name="BtnAdeteData" Content="Добавить" Click="BtnAdeteData_Click"></Button>
+            <Button x:Name="BtnDeleteData" Content="Удалить" Click="BtnDeleteData_Click"></Button>
+            <Label Foreground="Black" Content="Фильтрация по форме обучения: "/>
+            <ComboBox x:Name="Cmbform"  SelectionChanged="Cmbform_SelectionChanged"  Width="80">
+                <Label Content="Все"></Label>
+                <Label Content="Очная"></Label>
+                <Label Content="Очно-заочная"></Label>
+                <Label Content="Заочная"></Label>
+            </ComboBox>
+        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="DataGridОбучающиеся"
+                      ColumnWidth="*"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Срок обучения" Binding="{Binding Срок_обучения}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Фамилия}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Имя}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Отчество}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Пол1.Пол1}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Дата_рождения, StringFormat={}{0:dd.MMMM.yyyy}}"/>
+                <DataGridTextColumn Header="СНИЛС" Binding="{Binding СНИЛС}"/>
+                <DataGridTextColumn Header="Форма обучения" Binding="{Binding Форма_обучения1.Форма_обучения1}"/>
+                <DataGridTextColumn Header="Источник финансирования" Binding="{Binding Финансирования1.Финансирования1}"/>
+                <DataGridTextColumn Header="Форма получения образования на момент прекращения образ.отнош." Binding="{Binding Форма_получения_образования__на_момент_прекращения_образ_отношений.Форма_получения_образования__на_момент_прекращения_образ_отношений1}"/>
+                <DataGridTemplateColumn Header="Редактировать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEditData" Click="BtnEditData_Click" >Изменить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

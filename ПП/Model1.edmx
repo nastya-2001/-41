@@ -1,0 +1,1095 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ппModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Вид_документа">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Вид_документа" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="гр_специальностей">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="гр_специальностей" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Гражданство(код)">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Гражданство(код)" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Документы">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Вид_документа" Type="int" />
+          <Property Name="Статус_документа" Type="int" />
+          <Property Name="Подтверждение_утраты" Type="int" />
+          <Property Name="Подтверждение_обмена" Type="int" />
+          <Property Name="Подтверждение_уничтожения" Type="int" />
+          <Property Name="Серия_докумета" Type="int" />
+          <Property Name="Номер_документа" Type="char" MaxLength="10" />
+          <Property Name="Дата_выдачи" Type="date" />
+          <Property Name="Регист_номер" Type="char" MaxLength="10" />
+          <Property Name="Доп_программа" Type="int" />
+        </EntityType>
+        <EntityType Name="Доп_программа">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Доп_программа" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ДПО">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Наименование_доп_программы" Type="nvarchar" MaxLength="100" />
+          <Property Name="Наименование_области_проф_деятельности" Type="int" />
+          <Property Name="Укрупненные_группы_специальностей" Type="int" />
+          <Property Name="Наименование_квалиф_профессии" Type="nvarchar" MaxLength="100" />
+          <Property Name="Уровень_образования" Type="int" />
+          <Property Name="Фамилия_указанная_в_дипломе" Type="nvarchar" MaxLength="100" />
+          <Property Name="Серия_документа" Type="nvarchar" MaxLength="50" />
+          <Property Name="Номер_документа" Type="char" MaxLength="10" />
+          <Property Name="Год_начала" Type="int" />
+          <Property Name="Год_окончания" Type="int" />
+        </EntityType>
+        <EntityType Name="область_проф_деятельности">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="область_проф_деятельности" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Обучающиеся">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Срок_обучения" Type="int" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="100" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="100" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="100" />
+          <Property Name="Дата_рождения" Type="date" />
+          <Property Name="Пол" Type="int" />
+          <Property Name="СНИЛС" Type="int" />
+          <Property Name="Форма_обучения" Type="nchar" MaxLength="1" />
+          <Property Name="Финансирования" Type="int" />
+          <Property Name="Форма_образования" Type="int" />
+        </EntityType>
+        <EntityType Name="Подтверждение_обмена">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Подтверждение_обмена" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Подтверждение_уничтожения">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Подтверждение_уничтожения" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Подтверждение_утраты">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Подтверждение_утраты" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Пол">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Пол" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Сдача_отчетности">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Гражданство" Type="int" />
+          <Property Name="Наименование_документа_об_образовании" Type="nvarchar" MaxLength="100" />
+          <Property Name="Серия" Type="int" />
+          <Property Name="Номер" Type="int" />
+          <Property Name="Регистрационный_N" Type="int" />
+          <Property Name="Дата_выдачи" Type="date" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="100" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="100" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="100" />
+          <Property Name="Номер_документа_для_изменения" Type="int" />
+        </EntityType>
+        <EntityType Name="Статус_документа">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Статус_документа" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Уровень_образования">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Уровень_образования" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Финансирования">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Финансирования" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Форма_обучения">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Форма_обучения" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Форма_получения_образования_ на_момент_прекращения_образ_отношений">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Форма_получения_образования_ на_момент_прекращения_образ.отношений" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_док1_Гражданство(код)">
+          <End Role="Гражданство(код)" Type="Self.Гражданство(код)" Multiplicity="0..1" />
+          <End Role="Сдача_отчетности" Type="Self.Сдача_отчетности" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Гражданство(код)">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Сдача_отчетности">
+              <PropertyRef Name="Гражданство" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Вид_документа">
+          <End Role="Вид_документа" Type="Self.Вид_документа" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Вид_документа">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Вид_документа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Доп_программа">
+          <End Role="Доп_программа" Type="Self.Доп_программа" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Доп_программа">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Доп_программа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Подтверждение_обмена">
+          <End Role="Подтверждение_обмена" Type="Self.Подтверждение_обмена" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Подтверждение_обмена">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Подтверждение_обмена" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Подтверждение_уничтожения">
+          <End Role="Подтверждение_уничтожения" Type="Self.Подтверждение_уничтожения" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Подтверждение_уничтожения">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Подтверждение_уничтожения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Подтверждение_утраты">
+          <End Role="Подтверждение_утраты" Type="Self.Подтверждение_утраты" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Подтверждение_утраты">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Подтверждение_утраты" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Статус_документа">
+          <End Role="Статус_документа" Type="Self.Статус_документа" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Статус_документа">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Статус_документа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ДПО_гр_специальностей">
+          <End Role="гр_специальностей" Type="Self.гр_специальностей" Multiplicity="0..1" />
+          <End Role="ДПО" Type="Self.ДПО" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="гр_специальностей">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ДПО">
+              <PropertyRef Name="Укрупненные_группы_специальностей" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ДПО_область_проф_деятельности">
+          <End Role="область_проф_деятельности" Type="Self.область_проф_деятельности" Multiplicity="0..1" />
+          <End Role="ДПО" Type="Self.ДПО" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="область_проф_деятельности">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ДПО">
+              <PropertyRef Name="Наименование_области_проф_деятельности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ДПО_Уровень_образования">
+          <End Role="Уровень_образования" Type="Self.Уровень_образования" Multiplicity="0..1" />
+          <End Role="ДПО" Type="Self.ДПО" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Уровень_образования">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ДПО">
+              <PropertyRef Name="Уровень_образования" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Пол">
+          <End Role="Пол" Type="Self.Пол" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пол">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Пол" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Финансирования">
+          <End Role="Финансирования" Type="Self.Финансирования" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Финансирования">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Финансирования" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Форма_обучения">
+          <End Role="Форма_обучения" Type="Self.Форма_обучения" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Форма_обучения">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Форма_обучения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Форма_получения_образования_ на_момент_прекращения_образ_отношений">
+          <End Role="Форма_получения_образования_ на_момент_прекращения_образ_отношений" Type="Self.Форма_получения_образования_ на_момент_прекращения_образ_отношений" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Форма_получения_образования_ на_момент_прекращения_образ_отношений">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Форма_образования" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ппModelContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Вид_документа" EntityType="Self.Вид_документа" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="гр_специальностей" EntityType="Self.гр_специальностей" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Гражданство(код)" EntityType="Self.Гражданство(код)" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Документы" EntityType="Self.Документы" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Доп_программа" EntityType="Self.Доп_программа" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ДПО" EntityType="Self.ДПО" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="область_проф_деятельности" EntityType="Self.область_проф_деятельности" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Обучающиеся" EntityType="Self.Обучающиеся" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Подтверждение_обмена" EntityType="Self.Подтверждение_обмена" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Подтверждение_уничтожения" EntityType="Self.Подтверждение_уничтожения" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Подтверждение_утраты" EntityType="Self.Подтверждение_утраты" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Пол" EntityType="Self.Пол" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сдача_отчетности" EntityType="Self.Сдача_отчетности" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Статус_документа" EntityType="Self.Статус_документа" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Уровень_образования" EntityType="Self.Уровень_образования" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Финансирования" EntityType="Self.Финансирования" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Форма_обучения" EntityType="Self.Форма_обучения" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Форма_получения_образования_ на_момент_прекращения_образ_отношений" EntityType="Self.Форма_получения_образования_ на_момент_прекращения_образ_отношений" Schema="dbo" Table="Форма_получения_образования_ на_момент_прекращения_образ.отношений" store:Type="Tables" />
+          <AssociationSet Name="FK_док1_Гражданство(код)" Association="Self.FK_док1_Гражданство(код)">
+            <End Role="Гражданство(код)" EntitySet="Гражданство(код)" />
+            <End Role="Сдача_отчетности" EntitySet="Сдача_отчетности" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Вид_документа" Association="Self.FK_Документы_Вид_документа">
+            <End Role="Вид_документа" EntitySet="Вид_документа" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Доп_программа" Association="Self.FK_Документы_Доп_программа">
+            <End Role="Доп_программа" EntitySet="Доп_программа" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Подтверждение_обмена" Association="Self.FK_Документы_Подтверждение_обмена">
+            <End Role="Подтверждение_обмена" EntitySet="Подтверждение_обмена" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Подтверждение_уничтожения" Association="Self.FK_Документы_Подтверждение_уничтожения">
+            <End Role="Подтверждение_уничтожения" EntitySet="Подтверждение_уничтожения" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Подтверждение_утраты" Association="Self.FK_Документы_Подтверждение_утраты">
+            <End Role="Подтверждение_утраты" EntitySet="Подтверждение_утраты" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Статус_документа" Association="Self.FK_Документы_Статус_документа">
+            <End Role="Статус_документа" EntitySet="Статус_документа" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ДПО_гр_специальностей" Association="Self.FK_ДПО_гр_специальностей">
+            <End Role="гр_специальностей" EntitySet="гр_специальностей" />
+            <End Role="ДПО" EntitySet="ДПО" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ДПО_область_проф_деятельности" Association="Self.FK_ДПО_область_проф_деятельности">
+            <End Role="область_проф_деятельности" EntitySet="область_проф_деятельности" />
+            <End Role="ДПО" EntitySet="ДПО" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ДПО_Уровень_образования" Association="Self.FK_ДПО_Уровень_образования">
+            <End Role="Уровень_образования" EntitySet="Уровень_образования" />
+            <End Role="ДПО" EntitySet="ДПО" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Пол" Association="Self.FK_Обучающиеся_Пол">
+            <End Role="Пол" EntitySet="Пол" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Финансирования" Association="Self.FK_Обучающиеся_Финансирования">
+            <End Role="Финансирования" EntitySet="Финансирования" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Форма_обучения" Association="Self.FK_Обучающиеся_Форма_обучения">
+            <End Role="Форма_обучения" EntitySet="Форма_обучения" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Форма_получения_образования_ на_момент_прекращения_образ_отношений" Association="Self.FK_Обучающиеся_Форма_получения_образования_ на_момент_прекращения_образ_отношений">
+            <End Role="Форма_получения_образования_ на_момент_прекращения_образ_отношений" EntitySet="Форма_получения_образования_ на_момент_прекращения_образ_отношений" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ппModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Вид_документа">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Вид_документа1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Документы" Relationship="Self.FK_Документы_Вид_документа" FromRole="Вид_документа" ToRole="Документы" />
+        </EntityType>
+        <EntityType Name="гр_специальностей">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="гр_специальностей1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ДПО" Relationship="Self.FK_ДПО_гр_специальностей" FromRole="гр_специальностей" ToRole="ДПО" />
+        </EntityType>
+        <EntityType Name="Гражданство_код_">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Гражданство_код_1" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Сдача_отчетности" Relationship="Self.FK_док1_Гражданство_код_" FromRole="Гражданство_код_" ToRole="Сдача_отчетности" />
+        </EntityType>
+        <EntityType Name="Документы">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Вид_документа" Type="Int32" />
+          <Property Name="Статус_документа" Type="Int32" />
+          <Property Name="Подтверждение_утраты" Type="Int32" />
+          <Property Name="Подтверждение_обмена" Type="Int32" />
+          <Property Name="Подтверждение_уничтожения" Type="Int32" />
+          <Property Name="Серия_докумета" Type="Int32" />
+          <Property Name="Номер_документа" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Дата_выдачи" Type="DateTime" Precision="0" />
+          <Property Name="Регист_номер" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Доп_программа" Type="Int32" />
+          <NavigationProperty Name="Вид_документа1" Relationship="Self.FK_Документы_Вид_документа" FromRole="Документы" ToRole="Вид_документа" />
+          <NavigationProperty Name="Доп_программа1" Relationship="Self.FK_Документы_Доп_программа" FromRole="Документы" ToRole="Доп_программа" />
+          <NavigationProperty Name="Подтверждение_обмена1" Relationship="Self.FK_Документы_Подтверждение_обмена" FromRole="Документы" ToRole="Подтверждение_обмена" />
+          <NavigationProperty Name="Подтверждение_уничтожения1" Relationship="Self.FK_Документы_Подтверждение_уничтожения" FromRole="Документы" ToRole="Подтверждение_уничтожения" />
+          <NavigationProperty Name="Подтверждение_утраты1" Relationship="Self.FK_Документы_Подтверждение_утраты" FromRole="Документы" ToRole="Подтверждение_утраты" />
+          <NavigationProperty Name="Статус_документа1" Relationship="Self.FK_Документы_Статус_документа" FromRole="Документы" ToRole="Статус_документа" />
+        </EntityType>
+        <EntityType Name="Доп_программа">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Доп_программа1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Документы" Relationship="Self.FK_Документы_Доп_программа" FromRole="Доп_программа" ToRole="Документы" />
+        </EntityType>
+        <EntityType Name="ДПО">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Наименование_доп_программы" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Наименование_области_проф_деятельности" Type="Int32" />
+          <Property Name="Укрупненные_группы_специальностей" Type="Int32" />
+          <Property Name="Наименование_квалиф_профессии" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Уровень_образования" Type="Int32" />
+          <Property Name="Фамилия_указанная_в_дипломе" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Серия_документа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_документа" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Год_начала" Type="Int32" />
+          <Property Name="Год_окончания" Type="Int32" />
+          <NavigationProperty Name="гр_специальностей" Relationship="Self.FK_ДПО_гр_специальностей" FromRole="ДПО" ToRole="гр_специальностей" />
+          <NavigationProperty Name="область_проф_деятельности" Relationship="Self.FK_ДПО_область_проф_деятельности" FromRole="ДПО" ToRole="область_проф_деятельности" />
+          <NavigationProperty Name="Уровень_образования1" Relationship="Self.FK_ДПО_Уровень_образования" FromRole="ДПО" ToRole="Уровень_образования" />
+        </EntityType>
+        <EntityType Name="область_проф_деятельности">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="область_проф_деятельности1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ДПО" Relationship="Self.FK_ДПО_область_проф_деятельности" FromRole="область_проф_деятельности" ToRole="ДПО" />
+        </EntityType>
+        <EntityType Name="Обучающиеся">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Срок_обучения" Type="Int32" />
+          <Property Name="Фамилия" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Дата_рождения" Type="DateTime" Precision="0" />
+          <Property Name="Пол" Type="Int32" />
+          <Property Name="СНИЛС" Type="Int32" />
+          <Property Name="Форма_обучения" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Финансирования" Type="Int32" />
+          <Property Name="Форма_образования" Type="Int32" />
+          <NavigationProperty Name="Пол1" Relationship="Self.FK_Обучающиеся_Пол" FromRole="Обучающиеся" ToRole="Пол" />
+          <NavigationProperty Name="Финансирования1" Relationship="Self.FK_Обучающиеся_Финансирования" FromRole="Обучающиеся" ToRole="Финансирования" />
+          <NavigationProperty Name="Форма_обучения1" Relationship="Self.FK_Обучающиеся_Форма_обучения" FromRole="Обучающиеся" ToRole="Форма_обучения" />
+          <NavigationProperty Name="Форма_получения_образования__на_момент_прекращения_образ_отношений" Relationship="Self.FK_Обучающиеся_Форма_получения_образования__на_момент_прекращения_образ_отношений" FromRole="Обучающиеся" ToRole="Форма_получения_образования__на_момент_прекращения_образ_отношений" />
+        </EntityType>
+        <EntityType Name="Подтверждение_обмена">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Подтверждение_обмена1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Документы" Relationship="Self.FK_Документы_Подтверждение_обмена" FromRole="Подтверждение_обмена" ToRole="Документы" />
+        </EntityType>
+        <EntityType Name="Подтверждение_уничтожения">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Подтверждение_уничтожения1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Документы" Relationship="Self.FK_Документы_Подтверждение_уничтожения" FromRole="Подтверждение_уничтожения" ToRole="Документы" />
+        </EntityType>
+        <EntityType Name="Подтверждение_утраты">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Подтверждение_утраты1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Документы" Relationship="Self.FK_Документы_Подтверждение_утраты" FromRole="Подтверждение_утраты" ToRole="Документы" />
+        </EntityType>
+        <EntityType Name="Пол">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Пол1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Обучающиеся" Relationship="Self.FK_Обучающиеся_Пол" FromRole="Пол" ToRole="Обучающиеся" />
+        </EntityType>
+        <EntityType Name="Сдача_отчетности">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Гражданство" Type="Int32" />
+          <Property Name="Наименование_документа_об_образовании" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Серия" Type="Int32" />
+          <Property Name="Номер" Type="Int32" />
+          <Property Name="Регистрационный_N" Type="Int32" />
+          <Property Name="Дата_выдачи" Type="DateTime" Precision="0" />
+          <Property Name="Фамилия" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Номер_документа_для_изменения" Type="Int32" />
+          <NavigationProperty Name="Гражданство_код_" Relationship="Self.FK_док1_Гражданство_код_" FromRole="Сдача_отчетности" ToRole="Гражданство_код_" />
+        </EntityType>
+        <EntityType Name="Статус_документа">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Статус_документа1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Документы" Relationship="Self.FK_Документы_Статус_документа" FromRole="Статус_документа" ToRole="Документы" />
+        </EntityType>
+        <EntityType Name="Уровень_образования">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Уровень_образования1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ДПО" Relationship="Self.FK_ДПО_Уровень_образования" FromRole="Уровень_образования" ToRole="ДПО" />
+        </EntityType>
+        <EntityType Name="Финансирования">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Финансирования1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Обучающиеся" Relationship="Self.FK_Обучающиеся_Финансирования" FromRole="Финансирования" ToRole="Обучающиеся" />
+        </EntityType>
+        <EntityType Name="Форма_обучения">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Форма_обучения1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Обучающиеся" Relationship="Self.FK_Обучающиеся_Форма_обучения" FromRole="Форма_обучения" ToRole="Обучающиеся" />
+        </EntityType>
+        <EntityType Name="Форма_получения_образования__на_момент_прекращения_образ_отношений">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Форма_получения_образования__на_момент_прекращения_образ_отношений1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Обучающиеся" Relationship="Self.FK_Обучающиеся_Форма_получения_образования__на_момент_прекращения_образ_отношений" FromRole="Форма_получения_образования__на_момент_прекращения_образ_отношений" ToRole="Обучающиеся" />
+        </EntityType>
+        <Association Name="FK_Документы_Вид_документа">
+          <End Role="Вид_документа" Type="Self.Вид_документа" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Вид_документа">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Вид_документа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ДПО_гр_специальностей">
+          <End Role="гр_специальностей" Type="Self.гр_специальностей" Multiplicity="0..1" />
+          <End Role="ДПО" Type="Self.ДПО" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="гр_специальностей">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ДПО">
+              <PropertyRef Name="Укрупненные_группы_специальностей" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_док1_Гражданство_код_">
+          <End Role="Гражданство_код_" Type="Self.Гражданство_код_" Multiplicity="0..1" />
+          <End Role="Сдача_отчетности" Type="Self.Сдача_отчетности" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Гражданство_код_">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Сдача_отчетности">
+              <PropertyRef Name="Гражданство" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Доп_программа">
+          <End Role="Доп_программа" Type="Self.Доп_программа" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Доп_программа">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Доп_программа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Подтверждение_обмена">
+          <End Role="Подтверждение_обмена" Type="Self.Подтверждение_обмена" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Подтверждение_обмена">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Подтверждение_обмена" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Подтверждение_уничтожения">
+          <End Role="Подтверждение_уничтожения" Type="Self.Подтверждение_уничтожения" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Подтверждение_уничтожения">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Подтверждение_уничтожения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Подтверждение_утраты">
+          <End Role="Подтверждение_утраты" Type="Self.Подтверждение_утраты" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Подтверждение_утраты">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Подтверждение_утраты" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Документы_Статус_документа">
+          <End Role="Статус_документа" Type="Self.Статус_документа" Multiplicity="0..1" />
+          <End Role="Документы" Type="Self.Документы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Статус_документа">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Документы">
+              <PropertyRef Name="Статус_документа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ДПО_область_проф_деятельности">
+          <End Role="область_проф_деятельности" Type="Self.область_проф_деятельности" Multiplicity="0..1" />
+          <End Role="ДПО" Type="Self.ДПО" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="область_проф_деятельности">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ДПО">
+              <PropertyRef Name="Наименование_области_проф_деятельности" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ДПО_Уровень_образования">
+          <End Role="Уровень_образования" Type="Self.Уровень_образования" Multiplicity="0..1" />
+          <End Role="ДПО" Type="Self.ДПО" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Уровень_образования">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ДПО">
+              <PropertyRef Name="Уровень_образования" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Пол">
+          <End Role="Пол" Type="Self.Пол" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Пол">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Пол" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Финансирования">
+          <End Role="Финансирования" Type="Self.Финансирования" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Финансирования">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Финансирования" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Форма_обучения">
+          <End Role="Форма_обучения" Type="Self.Форма_обучения" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Форма_обучения">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Форма_обучения" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Обучающиеся_Форма_получения_образования__на_момент_прекращения_образ_отношений">
+          <End Role="Форма_получения_образования__на_момент_прекращения_образ_отношений" Type="Self.Форма_получения_образования__на_момент_прекращения_образ_отношений" Multiplicity="0..1" />
+          <End Role="Обучающиеся" Type="Self.Обучающиеся" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Форма_получения_образования__на_момент_прекращения_образ_отношений">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Обучающиеся">
+              <PropertyRef Name="Форма_образования" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ппEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Вид_документа" EntityType="Self.Вид_документа" />
+          <EntitySet Name="гр_специальностей" EntityType="Self.гр_специальностей" />
+          <EntitySet Name="Гражданство_код_" EntityType="Self.Гражданство_код_" />
+          <EntitySet Name="Документы" EntityType="Self.Документы" />
+          <EntitySet Name="Доп_программа" EntityType="Self.Доп_программа" />
+          <EntitySet Name="ДПО" EntityType="Self.ДПО" />
+          <EntitySet Name="область_проф_деятельности" EntityType="Self.область_проф_деятельности" />
+          <EntitySet Name="Обучающиеся" EntityType="Self.Обучающиеся" />
+          <EntitySet Name="Подтверждение_обмена" EntityType="Self.Подтверждение_обмена" />
+          <EntitySet Name="Подтверждение_уничтожения" EntityType="Self.Подтверждение_уничтожения" />
+          <EntitySet Name="Подтверждение_утраты" EntityType="Self.Подтверждение_утраты" />
+          <EntitySet Name="Пол" EntityType="Self.Пол" />
+          <EntitySet Name="Сдача_отчетности" EntityType="Self.Сдача_отчетности" />
+          <EntitySet Name="Статус_документа" EntityType="Self.Статус_документа" />
+          <EntitySet Name="Уровень_образования" EntityType="Self.Уровень_образования" />
+          <EntitySet Name="Финансирования" EntityType="Self.Финансирования" />
+          <EntitySet Name="Форма_обучения" EntityType="Self.Форма_обучения" />
+          <EntitySet Name="Форма_получения_образования__на_момент_прекращения_образ_отношений" EntityType="Self.Форма_получения_образования__на_момент_прекращения_образ_отношений" />
+          <AssociationSet Name="FK_Документы_Вид_документа" Association="Self.FK_Документы_Вид_документа">
+            <End Role="Вид_документа" EntitySet="Вид_документа" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ДПО_гр_специальностей" Association="Self.FK_ДПО_гр_специальностей">
+            <End Role="гр_специальностей" EntitySet="гр_специальностей" />
+            <End Role="ДПО" EntitySet="ДПО" />
+          </AssociationSet>
+          <AssociationSet Name="FK_док1_Гражданство_код_" Association="Self.FK_док1_Гражданство_код_">
+            <End Role="Гражданство_код_" EntitySet="Гражданство_код_" />
+            <End Role="Сдача_отчетности" EntitySet="Сдача_отчетности" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Доп_программа" Association="Self.FK_Документы_Доп_программа">
+            <End Role="Доп_программа" EntitySet="Доп_программа" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Подтверждение_обмена" Association="Self.FK_Документы_Подтверждение_обмена">
+            <End Role="Подтверждение_обмена" EntitySet="Подтверждение_обмена" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Подтверждение_уничтожения" Association="Self.FK_Документы_Подтверждение_уничтожения">
+            <End Role="Подтверждение_уничтожения" EntitySet="Подтверждение_уничтожения" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Подтверждение_утраты" Association="Self.FK_Документы_Подтверждение_утраты">
+            <End Role="Подтверждение_утраты" EntitySet="Подтверждение_утраты" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Документы_Статус_документа" Association="Self.FK_Документы_Статус_документа">
+            <End Role="Статус_документа" EntitySet="Статус_документа" />
+            <End Role="Документы" EntitySet="Документы" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ДПО_область_проф_деятельности" Association="Self.FK_ДПО_область_проф_деятельности">
+            <End Role="область_проф_деятельности" EntitySet="область_проф_деятельности" />
+            <End Role="ДПО" EntitySet="ДПО" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ДПО_Уровень_образования" Association="Self.FK_ДПО_Уровень_образования">
+            <End Role="Уровень_образования" EntitySet="Уровень_образования" />
+            <End Role="ДПО" EntitySet="ДПО" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Пол" Association="Self.FK_Обучающиеся_Пол">
+            <End Role="Пол" EntitySet="Пол" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Финансирования" Association="Self.FK_Обучающиеся_Финансирования">
+            <End Role="Финансирования" EntitySet="Финансирования" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Форма_обучения" Association="Self.FK_Обучающиеся_Форма_обучения">
+            <End Role="Форма_обучения" EntitySet="Форма_обучения" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Обучающиеся_Форма_получения_образования__на_момент_прекращения_образ_отношений" Association="Self.FK_Обучающиеся_Форма_получения_образования__на_момент_прекращения_образ_отношений">
+            <End Role="Форма_получения_образования__на_момент_прекращения_образ_отношений" EntitySet="Форма_получения_образования__на_момент_прекращения_образ_отношений" />
+            <End Role="Обучающиеся" EntitySet="Обучающиеся" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ппModelContainer" CdmEntityContainer="ппEntities1">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ппModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Вид_документа">
+            <EntityTypeMapping TypeName="ппModel.Вид_документа">
+              <MappingFragment StoreEntitySet="Вид_документа">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Вид_документа1" ColumnName="Вид_документа" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="гр_специальностей">
+            <EntityTypeMapping TypeName="ппModel.гр_специальностей">
+              <MappingFragment StoreEntitySet="гр_специальностей">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="гр_специальностей1" ColumnName="гр_специальностей" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Гражданство_код_">
+            <EntityTypeMapping TypeName="ппModel.Гражданство_код_">
+              <MappingFragment StoreEntitySet="Гражданство(код)">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Гражданство_код_1" ColumnName="Гражданство(код)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Документы">
+            <EntityTypeMapping TypeName="ппModel.Документы">
+              <MappingFragment StoreEntitySet="Документы">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Вид_документа" ColumnName="Вид_документа" />
+                <ScalarProperty Name="Статус_документа" ColumnName="Статус_документа" />
+                <ScalarProperty Name="Подтверждение_утраты" ColumnName="Подтверждение_утраты" />
+                <ScalarProperty Name="Подтверждение_обмена" ColumnName="Подтверждение_обмена" />
+                <ScalarProperty Name="Подтверждение_уничтожения" ColumnName="Подтверждение_уничтожения" />
+                <ScalarProperty Name="Серия_докумета" ColumnName="Серия_докумета" />
+                <ScalarProperty Name="Номер_документа" ColumnName="Номер_документа" />
+                <ScalarProperty Name="Дата_выдачи" ColumnName="Дата_выдачи" />
+                <ScalarProperty Name="Регист_номер" ColumnName="Регист_номер" />
+                <ScalarProperty Name="Доп_программа" ColumnName="Доп_программа" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Доп_программа">
+            <EntityTypeMapping TypeName="ппModel.Доп_программа">
+              <MappingFragment StoreEntitySet="Доп_программа">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Доп_программа1" ColumnName="Доп_программа" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ДПО">
+            <EntityTypeMapping TypeName="ппModel.ДПО">
+              <MappingFragment StoreEntitySet="ДПО">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Наименование_доп_программы" ColumnName="Наименование_доп_программы" />
+                <ScalarProperty Name="Наименование_области_проф_деятельности" ColumnName="Наименование_области_проф_деятельности" />
+                <ScalarProperty Name="Укрупненные_группы_специальностей" ColumnName="Укрупненные_группы_специальностей" />
+                <ScalarProperty Name="Наименование_квалиф_профессии" ColumnName="Наименование_квалиф_профессии" />
+                <ScalarProperty Name="Уровень_образования" ColumnName="Уровень_образования" />
+                <ScalarProperty Name="Фамилия_указанная_в_дипломе" ColumnName="Фамилия_указанная_в_дипломе" />
+                <ScalarProperty Name="Серия_документа" ColumnName="Серия_документа" />
+                <ScalarProperty Name="Номер_документа" ColumnName="Номер_документа" />
+                <ScalarProperty Name="Год_начала" ColumnName="Год_начала" />
+                <ScalarProperty Name="Год_окончания" ColumnName="Год_окончания" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="область_проф_деятельности">
+            <EntityTypeMapping TypeName="ппModel.область_проф_деятельности">
+              <MappingFragment StoreEntitySet="область_проф_деятельности">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="область_проф_деятельности1" ColumnName="область_проф_деятельности" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Обучающиеся">
+            <EntityTypeMapping TypeName="ппModel.Обучающиеся">
+              <MappingFragment StoreEntitySet="Обучающиеся">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Срок_обучения" ColumnName="Срок_обучения" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Дата_рождения" ColumnName="Дата_рождения" />
+                <ScalarProperty Name="Пол" ColumnName="Пол" />
+                <ScalarProperty Name="СНИЛС" ColumnName="СНИЛС" />
+                <ScalarProperty Name="Форма_обучения" ColumnName="Форма_обучения" />
+                <ScalarProperty Name="Финансирования" ColumnName="Финансирования" />
+                <ScalarProperty Name="Форма_образования" ColumnName="Форма_образования" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Подтверждение_обмена">
+            <EntityTypeMapping TypeName="ппModel.Подтверждение_обмена">
+              <MappingFragment StoreEntitySet="Подтверждение_обмена">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Подтверждение_обмена1" ColumnName="Подтверждение_обмена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Подтверждение_уничтожения">
+            <EntityTypeMapping TypeName="ппModel.Подтверждение_уничтожения">
+              <MappingFragment StoreEntitySet="Подтверждение_уничтожения">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Подтверждение_уничтожения1" ColumnName="Подтверждение_уничтожения" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Подтверждение_утраты">
+            <EntityTypeMapping TypeName="ппModel.Подтверждение_утраты">
+              <MappingFragment StoreEntitySet="Подтверждение_утраты">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Подтверждение_утраты1" ColumnName="Подтверждение_утраты" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Пол">
+            <EntityTypeMapping TypeName="ппModel.Пол">
+              <MappingFragment StoreEntitySet="Пол">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Пол1" ColumnName="Пол" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сдача_отчетности">
+            <EntityTypeMapping TypeName="ппModel.Сдача_отчетности">
+              <MappingFragment StoreEntitySet="Сдача_отчетности">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Гражданство" ColumnName="Гражданство" />
+                <ScalarProperty Name="Наименование_документа_об_образовании" ColumnName="Наименование_документа_об_образовании" />
+                <ScalarProperty Name="Серия" ColumnName="Серия" />
+                <ScalarProperty Name="Номер" ColumnName="Номер" />
+                <ScalarProperty Name="Регистрационный_N" ColumnName="Регистрационный_N" />
+                <ScalarProperty Name="Дата_выдачи" ColumnName="Дата_выдачи" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Номер_документа_для_изменения" ColumnName="Номер_документа_для_изменения" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Статус_документа">
+            <EntityTypeMapping TypeName="ппModel.Статус_документа">
+              <MappingFragment StoreEntitySet="Статус_документа">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Статус_документа1" ColumnName="Статус_документа" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Уровень_образования">
+            <EntityTypeMapping TypeName="ппModel.Уровень_образования">
+              <MappingFragment StoreEntitySet="Уровень_образования">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Уровень_образования1" ColumnName="Уровень_образования" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Финансирования">
+            <EntityTypeMapping TypeName="ппModel.Финансирования">
+              <MappingFragment StoreEntitySet="Финансирования">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Финансирования1" ColumnName="Финансирования" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Форма_обучения">
+            <EntityTypeMapping TypeName="ппModel.Форма_обучения">
+              <MappingFragment StoreEntitySet="Форма_обучения">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Форма_обучения1" ColumnName="Форма_обучения" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Форма_получения_образования__на_момент_прекращения_образ_отношений">
+            <EntityTypeMapping TypeName="ппModel.Форма_получения_образования__на_момент_прекращения_образ_отношений">
+              <MappingFragment StoreEntitySet="Форма_получения_образования_ на_момент_прекращения_образ_отношений">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Форма_получения_образования__на_момент_прекращения_образ_отношений1" ColumnName="Форма_получения_образования_ на_момент_прекращения_образ.отношений" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

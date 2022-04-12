@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="450825dc59924b789c25f27cb8a46f61" Name="Diagram1">
+        <EntityTypeShape EntityType="ппModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Вид_документа" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.гр_специальностей" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Гражданство_код_" Width="1.5" PointX="10.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Документы" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Доп_программа" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.ДПО" Width="1.5" PointX="10" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.область_проф_деятельности" Width="1.5" PointX="7.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Обучающиеся" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Подтверждение_обмена" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Подтверждение_уничтожения" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Подтверждение_утраты" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Пол" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Сдача_отчетности" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Статус_документа" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Уровень_образования" Width="1.5" PointX="7.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Финансирования" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Форма_обучения" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ппModel.Форма_получения_образования__на_момент_прекращения_образ_отношений" Width="1.5" PointX="5.75" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="ппModel.FK_Документы_Вид_документа" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_ДПО_гр_специальностей" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_док1_Гражданство_код_" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Документы_Доп_программа" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Документы_Подтверждение_обмена" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Документы_Подтверждение_уничтожения" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Документы_Подтверждение_утраты" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Документы_Статус_документа" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_ДПО_область_проф_деятельности" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_ДПО_Уровень_образования" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Обучающиеся_Пол" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Обучающиеся_Финансирования" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Обучающиеся_Форма_обучения" ManuallyRouted="false" />
+        <AssociationConnector Association="ппModel.FK_Обучающиеся_Форма_получения_образования__на_момент_прекращения_образ_отношений" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
